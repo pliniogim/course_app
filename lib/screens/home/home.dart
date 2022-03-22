@@ -1,4 +1,3 @@
-
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/screens/home/widget/active_course.dart';
 import 'package:course_app/screens/home/widget/emoji_text.dart';
@@ -23,9 +22,46 @@ class HomePage extends StatelessWidget {
             EmojiText(), 
             SearchInput(),
             FeatureCourse(),
-            ActiveCourse(),        ],
+            ActiveCourse(),
+                    ],
         ),
-      )
+      ),
+      bottomNavigationBar: _buildBottonNavigationBar(),
+    );
+  }
+
+
+  BottomNavigationBar _buildBottonNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: kBackground,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: [
+        BottomNavigationBarItem(
+          label: 'Home',
+          icon: Container(
+            padding: EdgeInsets.only(bottom: 5),
+            child: Text('Home',
+            style: TextStyle(fontWeight: FontWeight.bold),),
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: kAccent, width: 2))
+            ),
+          )
+        ),
+        BottomNavigationBarItem(
+          label: 'calendar',
+          icon: Image.asset('assets/icons/calendar.png',
+        width: 20)),
+        BottomNavigationBarItem(
+          label: 'bookmark',
+          icon: Image.asset('assets/icons/bookmark.png',
+        width: 20)),
+         BottomNavigationBarItem(
+           label: 'user',
+           icon: Image.asset('assets/icons/user.png',
+        width: 20)),
+      ],
     );
   }
 

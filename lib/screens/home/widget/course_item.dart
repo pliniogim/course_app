@@ -2,6 +2,8 @@ import 'package:course_app/constants/colors.dart';
 import 'package:course_app/models/course.dart';
 import 'package:flutter/material.dart';
 
+import '../../detail/widget/detail.dart';
+
 class CourseItem extends StatelessWidget {
   final Course course;
   CourseItem(this.course);
@@ -30,7 +32,10 @@ class CourseItem extends StatelessWidget {
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
                       ),
-                      child: Image.asset(course.imageUrl, fit: BoxFit.cover,),
+                      child: Image.asset(
+                        course.imageUrl,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Expanded(
@@ -40,38 +45,47 @@ class CourseItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(children: [
-                            Image.asset(course.authorImg, width: 20,),
-                            SizedBox(width: 5,),
-                            Text(course.author, style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          ],),
-                          SizedBox(height:5),
                           Row(
                             children: [
-                              Text(course.title, 
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: kFont,
-                            )),
+                              Image.asset(
+                                course.authorImg,
+                                width: 20,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                course.author,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text(course.title,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: kFont,
+                                  )),
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 5),
                                 width: 5,
                                 height: 5,
                                 decoration: BoxDecoration(
-                                  color: kFontLight, 
+                                  color: kFontLight,
                                   shape: BoxShape.circle,
                                 ),
                               ),
-
                               Text('2h 22min',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                color: kFontLight,
-                              )),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: kFontLight,
+                                  )),
                             ],
                           )
                         ],
@@ -81,21 +95,23 @@ class CourseItem extends StatelessWidget {
                 ],
               ),
             ),
-          ), 
+          ),
         ),
         Positioned(
           bottom: 60,
           right: 20,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: kAccent,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              )
-            ),
+                primary: kAccent,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10))),
             child: Text('Start'),
-          onPressed: () {},),
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DetailPage(course)));
+            },
+          ),
         )
       ],
     );
