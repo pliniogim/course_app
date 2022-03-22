@@ -1,4 +1,5 @@
 import 'package:course_app/screens/detail/widget/custom_app_bar.dart';
+import 'package:course_app/screens/home/widget/course_description.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/course.dart';
@@ -15,6 +16,7 @@ class DetailPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomAppBar(course),
+            CourseDescription(course),
           ],
         )),
     );
