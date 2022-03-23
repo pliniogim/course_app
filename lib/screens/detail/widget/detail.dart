@@ -1,3 +1,4 @@
+import 'package:course_app/screens/detail/widget/course_progress.dart';
 import 'package:course_app/screens/detail/widget/custom_app_bar.dart';
 import 'package:course_app/screens/home/widget/course_description.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,8 @@ class DetailPage extends StatelessWidget {
           children: [
             CustomAppBar(course),
             CourseDescription(course),
+            CourseProgress(),
+            
           ],
         )),
     );
