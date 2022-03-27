@@ -1,6 +1,6 @@
 import 'package:course_app/constants/colors.dart';
 import 'package:course_app/models/module.dart';
-import 'package:course_app/screens/detail/widget/course_model.dart';
+import 'package:course_app/screens/detail/widget/course_module.dart';
 import 'package:flutter/material.dart';
 
 class CourseProgress extends StatelessWidget {
@@ -37,7 +37,10 @@ class CourseProgress extends StatelessWidget {
                 ]),
               ],
             ),
-            CourseModule(modulesList[0]),
+            SizedBox(height: 20),
+            ...modulesList.map((e) => CourseModule(e)).toList(),
+            //CourseModule(modulesList[0]),
+            //CourseModule(modulesList[1]),
           ],
         ));
   }
