@@ -36,6 +36,10 @@ class Module {
           Icons.play_arrow_rounded, 'Module 1', 
           'How it all started.\nExplanation...', kPrimaryLight, 
           kPrimaryLight, kPrimaryColor, kPrimaryDark, '22 min', '2 lessons'),
+          Module(kFontLight.withOpacity(0.3), Colors.white, kFontLight.withOpacity(0.7), 
+          Icons.lock_outline_rounded,
+          'Module 2', 'What we didn\'t know\n about catastrophe', kPrimaryLight, Colors.white,
+          Colors.grey.withOpacity(0.2), Colors.grey, '12 min', '2 lessons'),
         ];
       }
 
